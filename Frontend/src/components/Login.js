@@ -68,6 +68,7 @@ export default function Login({ onLogin }) {
         }
       `}</style>
 
+      {/* Page background wrapper */}
       <Box
         sx={{
           minHeight: "100vh",
@@ -187,7 +188,6 @@ export default function Login({ onLogin }) {
             </Button>
           </form>
 
-          {/* Register Link always visible below form */}
           <Typography
             variant="body2"
             sx={{
@@ -205,37 +205,37 @@ export default function Login({ onLogin }) {
               Register here
             </Link>
           </Typography>
-        </Paper>
 
-        <Typography
-          variant="caption"
-          sx={{
-            mt: { xs: 3, md: 4 },
-            color: "#555",
-            fontWeight: 600,
-            userSelect: "none",
-            textAlign: "center",
-            width: "100%",
-            display: "block",
-            fontSize: { xs: "0.8rem", md: "0.85rem" },
-          }}
-        >
-          Made with{" "}
-          <span
-            style={{
-              color: "red",
-              display: "inline-block",
-              fontWeight: 700,
-              fontSize: "1.2em",
-              animation: "heartMove 1.5s infinite ease-in-out",
-              verticalAlign: "middle",
-              transformOrigin: "center",
+          <Typography
+            variant="caption"
+            sx={{
+              mt: { xs: 3, md: 4 },
+              color: "#555",
+              fontWeight: 600,
+              userSelect: "none",
+              textAlign: "center",
+              width: "100%",
+              display: "block",
+              fontSize: { xs: "0.8rem", md: "0.85rem" },
             }}
           >
-            ❤️
-          </span>{" "}
-          by Mangalam
-        </Typography>
+            Made with{" "}
+            <span
+              style={{
+                color: "red",
+                display: "inline-block",
+                fontWeight: 700,
+                fontSize: "1.2em",
+                animation: "heartMove 1.5s infinite ease-in-out",
+                verticalAlign: "middle",
+                transformOrigin: "center",
+              }}
+            >
+              ❤️
+            </span>{" "}
+            by Mangalam
+          </Typography>
+        </Paper>
 
         <Snackbar
           open={successOpen}
