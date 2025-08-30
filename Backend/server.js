@@ -18,7 +18,7 @@ const server = http.createServer(app);
 // 1) Centralize allowed origins for dev + prod
 const allowedOrigins = [
   "http://localhost:3000", // local frontend
-  "https://your-frontend.vercel.app", // replace after frontend deploy
+  "'https://mind-space-sigma.vercel.app'", // replace after frontend deploy
 ];
 
 // 2) Socket.IO with CORS (include GET/POST)
