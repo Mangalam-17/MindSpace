@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: MindSpace Backend
+    env: node
+    buildCommand: cd Backend && npm install
+    startCommand: cd Backend && npm start
+    rootDirectory: Backend
