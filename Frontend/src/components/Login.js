@@ -46,23 +46,31 @@ export default function Login({ onLogin }) {
 
       const data = res.data;
 
-      if (!res.status.toString().startsWith("2")) {
-        if (data.message === "Invalid credentials")
-          setError("Invalid username or password.");
-        else setError("Login failed. Please try again.");
-        setLoading(false);
-        return;
+      if (res.status >= 200 && res.status < 300) {
+        if (onLogin) onLogin(data.token, data.username);
+        else {
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("username", data.username);
+        }
+        navigate("/dashboard");
+      } else {
+        setError(data.message || "Login failed. Please try again.");
       }
-
-      if (onLogin) onLogin(data.token, data.username);
-      else {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("username", data.username);
+    } catch (err) {
+      // Display backend error message if available
+      if (
+        err.response &&
+        err.response.data &&
+        typeof err.response.data.message === "string"
+      ) {
+        if (err.response.data.message === "Invalid credentials") {
+          setError("Wrong username or password, please try again.");
+        } else {
+          setError(err.response.data.message);
+        }
+      } else {
+        setError("Network error. Please try again.");
       }
-
-      navigate("/dashboard");
-    } catch {
-      setError("Network error. Please try again.");
     }
     setLoading(false); // End loading
   };
