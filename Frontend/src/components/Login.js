@@ -6,8 +6,7 @@ import {
   TextField,
   Button,
   Link,
-  Snackbar,
-  Alert,
+  CircularProgress,
   keyframes,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -21,12 +20,13 @@ const buttonHover = keyframes`
 export default function Login({ onLogin }) {
   const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
-  const [successOpen, setSuccessOpen] = useState(false);
+  const [loading, setLoading] = useState(false); // Loading state
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true); // Start loading
     try {
       const res = await api.post("/api/auth/login", form);
       const data = res.data;
@@ -35,23 +35,21 @@ export default function Login({ onLogin }) {
         if (data.message === "Invalid credentials")
           setError("Invalid username or password.");
         else setError("Login failed. Please try again.");
+        setLoading(false);
         return;
       }
 
-      setSuccessOpen(true); // Show popup first
+      if (onLogin) onLogin(data.token, data.username);
+      else {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("username", data.username);
+      }
 
-      // Delay the onLogin and navigation by 1.5s
-      setTimeout(() => {
-        if (onLogin) onLogin(data.token, data.username);
-        else {
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("username", data.username);
-        }
-        navigate("/dashboard");
-      }, 1500);
+      navigate("/dashboard");
     } catch {
       setError("Network error. Please try again.");
     }
+    setLoading(false); // End loading
   };
 
   return (
@@ -171,6 +169,8 @@ export default function Login({ onLogin }) {
             <Button
               variant="contained"
               fullWidth
+              type="submit"
+              disabled={loading}
               sx={{
                 mt: { xs: 2, md: 3 },
                 py: { xs: 0.9, md: 1.1 },
@@ -182,10 +182,16 @@ export default function Login({ onLogin }) {
                 animation: `${buttonHover} 3.5s ease infinite`,
                 transition: "background-position 0.3s ease",
                 "&:hover": { backgroundPosition: "100% 50%" },
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
-              type="submit"
             >
-              LOGIN
+              {loading ? (
+                <CircularProgress size={24} sx={{ color: "#fff" }} />
+              ) : (
+                "LOGIN"
+              )}
             </Button>
           </form>
 
@@ -237,17 +243,6 @@ export default function Login({ onLogin }) {
             by Mangalam
           </Typography>
         </Paper>
-
-        <Snackbar
-          open={successOpen}
-          autoHideDuration={2000}
-          onClose={() => setSuccessOpen(false)}
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        >
-          <Alert severity="success" sx={{ width: "100%" }}>
-            Successfully logged in!
-          </Alert>
-        </Snackbar>
       </Box>
     </>
   );
