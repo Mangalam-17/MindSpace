@@ -40,6 +40,7 @@ MindSpace is an AI-powered mental health support platform designed to improve we
 ---
 
 ### 📁Project Structure
+
 The project is structured into the following folders and files:
 
 - `index.html`: The main entry point of the website.
@@ -75,6 +76,7 @@ The project is structured into the following folders and files:
 ---
 
 ### Installation
+
 #### Prerequisites
 
 - npm
@@ -142,6 +144,7 @@ The project is structured into the following folders and files:
 ---
 
 ### ⚙️How to Run
+
 - To run the website, follow these steps -
 
 1. Clone the repository to your local machine using `git clone`.
@@ -173,7 +176,7 @@ The project is structured into the following folders and files:
 
 ##### Support Circles
 
-![Support Circles](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/SupportCIrcles.png)
+![Support Circles](https://github.com/Mangalam-17/MindSpace/blob/3955ac511c66fbc25a987998735a73ad289cae27/Preview/SupportCIrcles.png)
 
 ##### Roadmap
 
@@ -193,7 +196,7 @@ The project is structured into the following folders and files:
 
 ![Creative Therapy_dark](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/CreativeTherapy_dark.png)
 
-![Support Circles_dark](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/SupportCircles_dark.png)
+![Support Circles_dark](https://github.com/Mangalam-17/MindSpace/blob/3955ac511c66fbc25a987998735a73ad289cae27/Preview/SupportCircles_dark.png)
 
 ![Roadmap_dark](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/Roadmap_dark.png)
 
