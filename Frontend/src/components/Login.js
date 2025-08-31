@@ -46,6 +46,7 @@ export default function Login({ onLogin }) {
         localStorage.setItem("username", data.username);
       }
 
+      // Delay navigation so Snackbar can be seen
       setTimeout(() => {
         navigate("/dashboard");
       }, 1500);
