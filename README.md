@@ -6,6 +6,8 @@
 
 MindSpace is an AI-powered mental health support platform designed to improve wellbeing through mood tracking, creative expression, peer support circles, and actionable resources. The platform combines technology and community to break traditional barriers around accessing mental health care.A full-stack AI mental health app with React frontend and Node.js backend. Features mood tracking, creative therapy, real-time support circles, and personalized roadmaps. Uses environment variables for secure config and supports deployment on Vercel &amp; Render. Focused on user wellness and community.
 
+---
+
 ### The website is divided into several sections, including:
 
 - Home/Dashboard: An overview and entry point for users after login, displaying core features, support options, and quick links.
@@ -16,6 +18,8 @@ MindSpace is an AI-powered mental health support platform designed to improve we
 - Roadmaps: Guided plans and actionable steps for users to improve their mental health journey.
 - Resources: Curated educational articles, self-help tips, and contact details for professional support.
 - Profile & Settings: Personal dashboard for managing user settings, notifications, privacy, and customization options.
+
+---
 
 ### 🧰Tech Stack
 
@@ -33,8 +37,9 @@ MindSpace is an AI-powered mental health support platform designed to improve we
 | Real-Time Communication     | Socket.iov4                   |
 | Cross-Browser Compatibility | Chrome, Firefox, Edge, Safari |
 
-### 📁Project Structure
+---
 
+### 📁Project Structure
 The project is structured into the following folders and files:
 
 - `index.html`: The main entry point of the website.
@@ -52,6 +57,8 @@ The project is structured into the following folders and files:
 - `.env`: Environment variables for database and secret keys (not committed).
 - `README.md`: Project documentation.
 
+---
+
 ### ✨Features
 
 1. **Responsive Design**: The platform adapts seamlessly to all screen sizes—including desktops, tablets, and smartphones—for an optimal user experience.
@@ -65,20 +72,10 @@ The project is structured into the following folders and files:
 9. **Notifications & Reminders**: Real-time notifications and reminders help users maintain healthy habits and stay engaged.
 10. **Modular Architecture**: Built for scalability and future expansion, allowing easy addition of new sections and features.
 
-### Uses
-
-- Track and improve personal mental health and wellbeing
-- Get emotional support via real-time community conversations
-- Follow guided mental health roadmaps for recovery
-- Share creative thoughts and artwork as self-expression
-- Access curated educational resources
-- Ensure secure, private authentication and data management
-- Receive real-time updates and reminders
-- Support therapists and coaches in monitoring progress
+---
 
 ### Installation
-
-### Prerequisites
+#### Prerequisites
 
 - npm
   ```sh
@@ -143,7 +140,6 @@ The project is structured into the following folders and files:
    ```
 
 ### ⚙️How to Run
-
 - To run the website, follow these steps -
 
 1. Clone the repository to your local machine using `git clone`.
