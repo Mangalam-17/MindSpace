@@ -13,13 +13,20 @@ router.post("/register", async (req, res) => {
     const hashed = await bcrypt.hash(password, 10);
     const user = new User({ username, password: hashed });
     await user.save();
-    res.status(201).json({ message: "User registered" });
+
+    // Generate token immediately after registration
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
+
+    // Respond with token and user info for auto login
+    res.status(201).json({ token, username: user.username });
   } catch (e) {
     res.status(500).json({ message: "Server error" });
   }
 });
 
-// Login
+// Login (no change needed)
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   try {

@@ -46,7 +46,9 @@ export default function Login({ onLogin }) {
         localStorage.setItem("username", data.username);
       }
 
-      setTimeout(() => navigate("/dashboard"), 2000);
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1500);
     } catch {
       setError("Network error. Please try again.");
     }
@@ -199,13 +201,11 @@ export default function Login({ onLogin }) {
             <Link
               sx={{ fontWeight: "bold", cursor: "pointer" }}
               onClick={() => navigate("/register")}
-              underline="hover"
             >
               Register here
             </Link>
           </Typography>
 
-          {/* "Made with love" now INSIDE Paper, just like Register */}
           <Typography
             variant="caption"
             sx={{
