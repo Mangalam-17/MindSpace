@@ -16,13 +16,13 @@ const User = require("./models/User"); // Import User model for senderName
 const app = express();
 const server = http.createServer(app);
 
-// 1) Centralize allowed origins for dev + prod
+// Allowed origins for CORS
 const allowedOrigins = [
   "http://localhost:3000",
   "https://mind-space-sigma.vercel.app",
 ];
 
-// 2) Socket.IO with CORS (include GET/POST)
+// Socket.IO setup with cors
 const io = new socketIo.Server(server, {
   cors: {
     origin: allowedOrigins,
@@ -34,7 +34,7 @@ const io = new socketIo.Server(server, {
 // DB connection
 connectDB();
 
-// 3) Express CORS for REST API
+// Express CORS and JSON middleware
 app.use(
   cors({
     origin: allowedOrigins,
@@ -42,13 +42,12 @@ app.use(
     credentials: true,
   })
 );
-
 app.use(express.json());
 
-// 4) Health check
+// Health check
 app.get("/health", (req, res) => res.json({ ok: true }));
 
-// API Routes
+// Register API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/moods", moodRoutes);
 app.use("/api/creative", creativeRoutes);
@@ -71,9 +70,17 @@ io.on("connection", (socket) => {
       const user = await User.findById(senderId);
       const senderName = user ? user.name : "Unknown User";
 
+      // Debug log to verify what is emitted
+      console.log("Sending message:", {
+        senderId,
+        senderName,
+        text,
+        createdAt: new Date(),
+      });
+
       io.to(circleId).emit("newMessage", {
         senderId,
-        senderName, // Send user name instead of just ID
+        senderName,
         text,
         createdAt: new Date(),
       });
@@ -87,6 +94,6 @@ io.on("connection", (socket) => {
   });
 });
 
-// 5) Bind to platform port in prod, 5000 locally
+// Listen on port
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
