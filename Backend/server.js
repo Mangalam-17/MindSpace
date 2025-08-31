@@ -65,12 +65,11 @@ io.on("connection", (socket) => {
   socket.on("supportCircleMessage", async ({ circleId, senderId, text }) => {
     try {
       const user = await User.findById(senderId);
-      // Use username since 'name' field does not exist
       const senderName = user ? user.username : "Unknown User";
 
       io.to(circleId).emit("newMessage", {
-        senderId,
-        senderName,
+        senderId, // Raw ID, fallback if name missing
+        senderName, // This is what should display in frontend
         text,
         createdAt: new Date(),
       });

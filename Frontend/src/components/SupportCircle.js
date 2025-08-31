@@ -310,21 +310,11 @@ export default function SupportCircle({ token, userId }) {
               </Typography>
             )}
             {messages.map((msg, index) => (
-              <Box
-                key={index}
-                sx={{
-                  mb: 1,
-                  p: 1,
-                  bgcolor: msg.senderId === userId ? "#cce5ff" : "#e2e2e2",
-                  borderRadius: 1,
-                  maxWidth: { xs: "85%", md: "75%" },
-                  ml: msg.senderId === userId ? "auto" : 0,
-                }}
-              >
+              <Box key={index} /* styling */>
                 <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                  {msg.senderId}
+                  {msg.senderName || msg.senderId}{" "}
+                  {/* Shows senderName if exists, else falls back to senderId */}
                 </Typography>
-                <Typography variant="body1">{msg.text}</Typography>
               </Box>
             ))}
             <div ref={bottomRef} />
