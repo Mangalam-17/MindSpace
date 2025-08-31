@@ -315,6 +315,7 @@ export default function SupportCircle({ token, userId }) {
                   {msg.senderName || msg.senderId}{" "}
                   {/* Shows senderName if exists, else falls back to senderId */}
                 </Typography>
+                <Typography variant="body1">{msg.text}</Typography>
               </Box>
             ))}
             <div ref={bottomRef} />
