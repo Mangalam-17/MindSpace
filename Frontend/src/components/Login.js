@@ -38,16 +38,15 @@ export default function Login({ onLogin }) {
         return;
       }
 
-      setSuccessOpen(true);
+      setSuccessOpen(true); // Show popup first
 
-      if (onLogin) onLogin(data.token, data.username);
-      else {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("username", data.username);
-      }
-
-      // Delay navigation so Snackbar can be seen
+      // Delay the onLogin and navigation by 1.5s
       setTimeout(() => {
+        if (onLogin) onLogin(data.token, data.username);
+        else {
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("username", data.username);
+        }
         navigate("/dashboard");
       }, 1500);
     } catch {
