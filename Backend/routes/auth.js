@@ -20,6 +20,10 @@ router.post("/register", async (req, res) => {
     });
 
     await user.save();
+    console.log(
+      "New user registered with roadmapProgress:",
+      user.roadmapProgress
+    );
 
     // Generate token immediately after registration
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {

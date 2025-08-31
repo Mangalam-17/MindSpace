@@ -8,7 +8,18 @@ const router = express.Router();
 router.get("/", auth, async (req, res) => {
   try {
     const steps = await RoadmapStep.find();
+
+    // Log roadmap step sample for DB check
+    if (steps.length > 0) {
+      console.log("Sample roadmap step from DB:", steps[0]);
+    }
+
     const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    console.log("User roadmapProgress:", user.roadmapProgress);
 
     const mergedSteps = steps.map((step) => {
       const progress = user.roadmapProgress.find(
@@ -19,6 +30,8 @@ router.get("/", auth, async (req, res) => {
         completed: progress ? progress.completed : false,
       };
     });
+
+    console.log("Merged roadmap steps (first 3):", mergedSteps.slice(0, 3));
 
     res.json(mergedSteps);
   } catch (error) {
@@ -33,21 +46,17 @@ router.put("/:id", auth, async (req, res) => {
     const { completed } = req.body;
 
     const user = await User.findById(req.user.id);
-
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // Find existing progress record for this step, if any
     let progress = user.roadmapProgress.find(
       (p) => p.stepId.toString() === stepId
     );
 
     if (progress) {
-      // Update the existing progress
       progress.completed = completed;
     } else {
-      // Add new progress record
       user.roadmapProgress.push({ stepId, completed });
     }
 
