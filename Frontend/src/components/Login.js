@@ -201,6 +201,7 @@ export default function Login({ onLogin }) {
             <Link
               sx={{ fontWeight: "bold", cursor: "pointer" }}
               onClick={() => navigate("/register")}
+              underline="none"
             >
               Register here
             </Link>

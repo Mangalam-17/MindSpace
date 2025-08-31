@@ -80,7 +80,13 @@ function App() {
         />
         <Route
           path="/register"
-          element={!token ? <Register /> : <Navigate to="/dashboard" replace />}
+          element={
+            !token ? (
+              <Register onRegister={handleLogin} /> // Pass handleLogin here
+            ) : (
+              <Navigate to="/dashboard" replace />
+            )
+          }
         />
         <Route
           path="/"

@@ -40,21 +40,19 @@ export default function Register({ onRegister }) {
         return;
       }
 
-      // Store JWT token for automatic login
-      if (data.token) {
-        localStorage.setItem("token", data.token);
-      }
-
       setSuccessOpen(true);
 
-      // Notify parent or global auth state
-      if (onRegister) onRegister(form.username);
-
-      // Redirect to dashboard after short delay
-      setTimeout(() => {
-        setSuccessOpen(false);
-        navigate("/dashboard"); // Update this path to your logged-in landing page
-      }, 1500);
+      // Use onRegister prop to pass token & username to update auth state and redirect
+      if (onRegister) {
+        onRegister(data.token, data.username);
+      } else {
+        // Fallback - store token and username locally then navigate
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("username", data.username);
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 1500);
+      }
     } catch {
       setError("Network error. Please try again.");
     }
@@ -207,6 +205,7 @@ export default function Register({ onRegister }) {
             <Link
               sx={{ fontWeight: "bold", cursor: "pointer" }}
               onClick={() => navigate("/login")}
+              underline="none"
             >
               Login here
             </Link>
