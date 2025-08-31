@@ -20,6 +20,7 @@ const server = http.createServer(app);
 const allowedOrigins = [
   "http://localhost:3000",
   "https://mind-space-sigma.vercel.app",
+  "https://mind-space-git-main-mangalam-mishras-projects.vercel.app", // Added deployed frontend URL
 ];
 
 // Socket.IO setup with cors
