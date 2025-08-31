@@ -31,29 +31,48 @@ export default function Register({ onRegister }) {
     setError("");
     setLoading(true); // Start loading
     try {
-      const res = await api.post("/api/auth/register", form);
-      const data = res.data;
+      // Trim inputs to avoid leading/trailing spaces
+      const trimmedUsername = form.username.trim();
+      const trimmedPassword = form.password.trim();
+
+      if (!trimmedUsername || !trimmedPassword) {
+        setError("Username and password cannot be empty.");
+        setLoading(false);
+        return;
+      }
+
+      const res = await api.post("/api/auth/register", {
+        username: trimmedUsername,
+        password: trimmedPassword,
+      });
 
       if (!res.status.toString().startsWith("2")) {
-        if (data.message === "User exists")
-          setError("Username already exists.");
-        else setError("Registration failed. Please try again.");
+        setError(res.data?.message || "Registration failed. Please try again.");
         setLoading(false);
         return;
       }
 
       setSuccessOpen(true);
 
-      if (onRegister) onRegister(data.token, data.username);
-      else {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("username", data.username);
+      if (onRegister) {
+        onRegister(res.data.token, res.data.username);
+      } else {
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("username", res.data.username);
         setTimeout(() => {
           navigate("/dashboard");
         }, 1500);
       }
-    } catch {
-      setError("Network error. Please try again.");
+    } catch (err) {
+      if (
+        err.response &&
+        err.response.data &&
+        typeof err.response.data.message === "string"
+      ) {
+        setError(err.response.data.message);
+      } else {
+        setError("Network error. Please try again.");
+      }
     }
     setLoading(false); // End loading
   };

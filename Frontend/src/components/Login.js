@@ -28,7 +28,22 @@ export default function Login({ onLogin }) {
     setError("");
     setLoading(true); // Start loading
     try {
-      const res = await api.post("/api/auth/login", form);
+      // Trim inputs to remove extra spaces
+      const trimmedUsername = form.username.trim();
+      const trimmedPassword = form.password.trim();
+
+      // Basic validation (optional)
+      if (!trimmedUsername || !trimmedPassword) {
+        setError("Username and password cannot be empty.");
+        setLoading(false);
+        return;
+      }
+
+      const res = await api.post("/api/auth/login", {
+        username: trimmedUsername,
+        password: trimmedPassword,
+      });
+
       const data = res.data;
 
       if (!res.status.toString().startsWith("2")) {
