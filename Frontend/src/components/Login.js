@@ -6,8 +6,6 @@ import {
   TextField,
   Button,
   Link,
-  Snackbar,
-  Alert,
   keyframes,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -18,10 +16,9 @@ const buttonHover = keyframes`
   100% { background-position: 100% 50%; }
 `;
 
-export default function Login({ onLogin }) {
+export default function Login({ onLogin, showNotification }) {
   const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
-  const [successOpen, setSuccessOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -38,17 +35,19 @@ export default function Login({ onLogin }) {
         return;
       }
 
-      setSuccessOpen(true); // Show popup first
+      // Trigger global notification from App
+      if (showNotification) {
+        showNotification("Successfully logged in!", "success");
+      }
 
-      // Delay the onLogin and navigation by 1.5s
-      setTimeout(() => {
-        if (onLogin) onLogin(data.token, data.username);
-        else {
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("username", data.username);
-        }
-        navigate("/dashboard");
-      }, 1500);
+      if (onLogin) {
+        onLogin(data.token, data.username);
+      } else {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("username", data.username);
+      }
+
+      navigate("/dashboard");
     } catch {
       setError("Network error. Please try again.");
     }
@@ -237,17 +236,6 @@ export default function Login({ onLogin }) {
             by Mangalam
           </Typography>
         </Paper>
-
-        <Snackbar
-          open={successOpen}
-          autoHideDuration={2000}
-          onClose={() => setSuccessOpen(false)}
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        >
-          <Alert severity="success" sx={{ width: "100%" }}>
-            Successfully logged in!
-          </Alert>
-        </Snackbar>
       </Box>
     </>
   );
