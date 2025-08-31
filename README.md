@@ -6,8 +6,7 @@
 
 MindSpace is an AI-powered mental health support platform designed to improve wellbeing through mood tracking, creative expression, peer support circles, and actionable resources. The platform combines technology and community to break traditional barriers around accessing mental health care.A full-stack AI mental health app with React frontend and Node.js backend. Features mood tracking, creative therapy, real-time support circles, and personalized roadmaps. Uses environment variables for secure config and supports deployment on Vercel &amp; Render. Focused on user wellness and community.
 
-The website is divided into several sections, including:
-
+### The website is divided into several sections, including:
 - Home/Dashboard: An overview and entry point for users after login, displaying core features, support options, and quick links.
 - Register/Login: Secure authentication pages for new and existing users to access personalized features.
 - Mood Tracker: Section for logging daily moods, viewing trends, and accessing personal mental health reports.
@@ -16,6 +15,40 @@ The website is divided into several sections, including:
 - Roadmaps: Guided plans and actionable steps for users to improve their mental health journey.
 - Resources: Curated educational articles, self-help tips, and contact details for professional support.
 - Profile & Settings: Personal dashboard for managing user settings, notifications, privacy, and customization options.
+
+### 🧰Tech Stack
+
+| Technology                  | Version                       |
+| --------------------------- | ----------------------------- |
+| HTML                        | 5                             |
+| CSS                         | 3                             |
+| JavaScript                  | ES6                           |
+| React.js                    | 18.x                          |
+| Node.js                     | 18.x                          |
+| Express.js                  | 4.x                           |
+| MongoDB                     | 6.x                           |
+| JWT Authentication          | Latest                        |
+| Responsive Design.          | Material-UI v5                |
+| Real-Time Communication     | Socket.iov4                   |
+| Cross-Browser Compatibility | Chrome, Firefox, Edge, Safari |
+
+### 📁Project Structure
+
+The project is structured into the following folders and files:
+• `index.html`: The main entry point of the website.
+• `src/`: Contains all React source code components and pages.
+• `components/`: Reusable UI - Main application pages (Home, Dashboard, Login, Register, CreativeSpace, Roadmaps, SupportCircles, Resources, Profile).
+• `styles/`: CSS or Material-UI theme files for the project.
+• `public/`: Publicly accessible files, including favicon and manifest.
+• `backend/`: Backend Node.js/Express server source.
+• `models/`: Database schema definitions.
+• `routes/`: API route handlers (auth, mood, creative, supportCircle, etc.).
+• `controllers/`: Request handling logic and API controllers.
+• `middleware/`: Authentication, error handling, and validation.
+• `config/`: Configuration files for environment variables, database, etc.
+• `package.json`: Project dependencies and configuration.
+• `.env`: Environment variables for database and secret keys (not committed).
+• `README.md`: Project documentation.
 
 ### ✨Features
 
@@ -30,149 +63,7 @@ The website is divided into several sections, including:
 9. **Notifications & Reminders**: Real-time notifications and reminders help users maintain healthy habits and stay engaged.
 10. **Modular Architecture**: Built for scalability and future expansion, allowing easy addition of new sections and features.
 
-### 🧰Tech Stack
-
-| Technology                 | Version                           |
-| -------------------------- | --------------------------------- |
-| HTML                       | 5                                 |
-| CSS                        | 3                                 |
-| JavaScript                 | ES6                               |
-| Responsive Design          | Vanilla CSS v3                    |
-| Search Engine Optimization | SEO principles and best practices |
-| Lightbox Effect            | Custom JavaScript and CSS         |
-
-### 📁Project Structure
-
-The project is structured into the following folders and files:
-
-- `index.html`: The main entry point of the website.
-- `services/`: A folder containing HTML files for each service offered by Editkaro.
-- `case-studies/`: A folder containing HTML files for each case study.
-- `about/`: A folder containing HTML files for the about section.
-- `contact/`: A folder containing HTML files for the contact section.
-- `style.css`: The main CSS file for the website.
-- `script.js`: The main JavaScript file for the website.
-- `images/`: A folder containing images used throughout the website.
-- `icons/`: A folder containing icons used throughout the website.
-
-### ⚙️How to Run
-
-To run the website, follow these steps:
-
-1. Clone the repository to your local machine using `git clone`.
-2. Install the required images and links.
-3. Run the website using `index.html`.
-4. Setup the CSS according to your choice and style, rest you can use the default as well.
-5. Open the website in your preferred web browser.
-
-### 🧪Testing Instructions
-
-To test the website, follow these steps:
-
-1. Open the website in your preferred web browser.
-2. Check the website's responsiveness by resizing the browser window.
-3. Test the website's search engine optimization by searching for specific keywords.
-4. Test the website's lightbox effect by clicking on a video thumbnail.
-5. Test the website's social media integration by clicking on the social media links.
-
-### 📸Preview
-
-Home Page
-
-![Home Page](https://github.com/Mangalam-17/EditKaro.in/blob/dba4f9182ceeecc9ccb8f89d7983e7c697e1ba10/Image_Preview/HomePage.png)
-
-##### Digital World
-
-![Services](https://github.com/Mangalam-17/EditKaro.in/blob/a87604ddb5db6db495e1fc387a1e8f8049bf0cbb/Image_Preview/Home_Service.png)
-
-##### Portfolio showcases
-
-![Portfolio showcases](https://github.com/Mangalam-17/EditKaro.in/blob/a87604ddb5db6db495e1fc387a1e8f8049bf0cbb/Image_Preview/Home_work.png)
-
-##### Showcases
-
-![Other Hero contents](https://github.com/Mangalam-17/EditKaro.in/blob/a87604ddb5db6db495e1fc387a1e8f8049bf0cbb/Image_Preview/Home_footer.png)
-
-####### Social Media Management
-
-![Social Media Management]()
-
-##### PPC
-
-![PPC](https://github.com/Mangalam-17/EditKaro.in/blob/a87604ddb5db6db495e1fc387a1e8f8049bf0cbb/Image_Preview/PPC.png)
-
-##### Services
-
-![Services](https://github.com/Mangalam-17/EditKaro.in/blob/a87604ddb5db6db495e1fc387a1e8f8049bf0cbb/Image_Preview/Services.png)
-
-##### SEO
-
-![SEO](https://github.com/Mangalam-17/EditKaro.in/blob/a87604ddb5db6db495e1fc387a1e8f8049bf0cbb/Image_Preview/SEO.png)
-
-##### Web Design
-
-![Web Design](https://github.com/Mangalam-17/EditKaro.in/blob/a87604ddb5db6db495e1fc387a1e8f8049bf0cbb/Image_Preview/Webdesign.png)
-
-##### Case Studies
-
-![Case Studies](https://github.com/Mangalam-17/EditKaro.in/blob/a87604ddb5db6db495e1fc387a1e8f8049bf0cbb/Image_Preview/casestudies.png)
-
-##### About Us
-
-![About Us](https://github.com/Mangalam-17/EditKaro.in/blob/a87604ddb5db6db495e1fc387a1e8f8049bf0cbb/Image_Preview/aboutus.png)
-
-##### Contact
-
-![Contact](https://github.com/Mangalam-17/EditKaro.in/blob/a87604ddb5db6db495e1fc387a1e8f8049bf0cbb/Image_Preview/contact.png)
-
-### 👤Author
-
-The website was developed by [Mangalam Mishra], a freelance web developer with expertise in MERN Stack Development
-
-### 📝License
-
-The website is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
-![MindSpace Logo](./images/mindspace-logo.png)
-
----
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Uses](#uses)
-- [Installation](#installation)
-- [Working](#working)
-- [Screenshots](#screenshots)
-- [Advantages & Disadvantages](#advantages--disadvantages)
-- [Future Scope](#future-scope)
-- [Contact](#contact)
-
----
-
-## Introduction
-
-MindSpace is an AI-powered mental health support platform designed to improve wellbeing through mood tracking, creative expression, peer support circles, and actionable resources. The platform combines technology and community to break traditional barriers around accessing mental health care.A full-stack AI mental health app with React frontend and Node.js backend. Features mood tracking, creative therapy, real-time support circles, and personalized roadmaps. Uses environment variables for secure config and supports deployment on Vercel &amp; Render. Focused on user wellness and community.
-
----
-
-## Features
-
-- User Registration & Login (secure JWT authentication)
-- Mood Tracking & Analytics (visual reports, pattern recognition)
-- Creative Expression Space
-- Real-Time Support Circles Chat
-- Mental Health Roadmaps
-- Curated Resource Library
-- Secure Authentication & Data Protection
-- Responsive & Accessible User Interface
-- Real-Time Notifications & Updates
-- User Profiles & Settings
-
----
-
-## Uses
+### Uses
 
 - Track and improve personal mental health and wellbeing
 - Get emotional support via real-time community conversations
@@ -183,22 +74,110 @@ MindSpace is an AI-powered mental health support platform designed to improve we
 - Receive real-time updates and reminders
 - Support therapists and coaches in monitoring progress
 
+### ⚙️How to Run
+
+To run the website, follow these steps: 1. Clone the repository to your local machine using `git clone`. 2. Install the required dependencies using `npm install` in both frontend and backend folders. 3. Set up environment variables for backend configuration (`.env` file). 4. Run the backend server with `npm start` inside the `backend/` folder. 5. Run the frontend application with `npm start` inside the `src/` or `frontend/` folder. 6. Open the frontend app in your preferred web browser (usually at `http://localhost:3000`). 7. Optionally, customize CSS styles or add images/assets in the respective folders.
+
+### 📸Preview
+
+##### Home Page
+
+![Home Page]()
+
+##### Registration Page
+
+![Registration Page]()
+
+##### Dashboard
+
+![Dashboard]()
+
+##### Creative Therapy
+
+![Creative Therapy]()
+
+##### Support Circles
+
+![Support Circles]()
+
+##### Roadmap
+
+![Roadmap]()
+
+##### Insight Reports
+
+![Insight Reports]()
+
+##### Resources
+
+![Resources]()
+
+##### Dark Mode UI as well
+
+![Dashboard]()
+
+![Creative Therapy]()
+
+![Support Circles]()
+
+![Roadmap]()
+
+![Insight Reports]()
+
+![Resources]()
+
+### 📝License
+
+The website is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
 ---
 
 ## Installation
 
 ### Backend
 
-git clone https://github.com/Mangalam-17/mindspace.git
-cd mindspace/backend
-npm install
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
 
-Configure `.env` with:
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-PORT=5000
+### Prerequisites
 
-npm start
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+
+1. Get your mongoDB Atlas URL after creating the cluster
+2. Clone the repo
+   ```sh
+   git clone https://github.com/Mangalam-17/mindspace.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Configure `.env` with:
+   ```js
+   const MONGO_URI=`your_mongodb_connection_string`
+   const JWT_SECRET=`your_jwt_secret`
+   const PORT=`5000`
+   ```
+5. Change git remote url to avoid accidental pushes to base project
+   ```sh
+   git remote set-url origin github_username/repo_name
+   git remote -v # confirm the changes
+
+6. Set start scripts if not set
+   ```sh
+   npm start or npm run dev
+   ```
+
 
 ### Frontend
 
