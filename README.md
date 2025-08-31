@@ -139,6 +139,8 @@ The project is structured into the following folders and files:
    npm start or npm run dev
    ```
 
+---
+
 ### ⚙️How to Run
 - To run the website, follow these steps -
 
@@ -149,53 +151,55 @@ The project is structured into the following folders and files:
 5. Run the frontend application with `npm start` inside the `src/` or `frontend/` folder.
 6. Open the frontend app in your preferred web browser (usually at `http://localhost:3000`). 7. Optionally, customize CSS styles or add images/assets in the respective folders.
 
+---
+
 ### 📸Preview
 
 ##### Home Page
 
-![Home Page]()
+![Home Page](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/HomePage.png)
 
 ##### Registration Page
 
-![Registration Page]()
+![Registration Page](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/RegisterPage.png)
 
 ##### Dashboard
 
-![Dashboard]()
+![Dashboard](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/Dashboard.png)
 
 ##### Creative Therapy
 
-![Creative Therapy]()
+![Creative Therapy](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/CreativeTherapy.png)
 
 ##### Support Circles
 
-![Support Circles]()
+![Support Circles](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/SupportCIrcles.png)
 
 ##### Roadmap
 
-![Roadmap]()
+![Roadmap](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/Roadmap.png)
 
 ##### Insight Reports
 
-![Insight Reports]()
+![Insight Reports](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/InsightReports.png)
 
 ##### Resources
 
-![Resources]()
+![Resources](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/Resources.png)
 
 ##### Dark Mode UI as well
 
-![Dashboard]()
+![Dashboard_dark](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/Dashboard_dark.png)
 
-![Creative Therapy]()
+![Creative Therapy_dark](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/CreativeTherapy_dark.png)
 
-![Support Circles]()
+![Support Circles_dark](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/SupportCircles_dark.png)
 
-![Roadmap]()
+![Roadmap_dark](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/Roadmap_dark.png)
 
-![Insight Reports]()
+![Insight Reports_dark](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/InsightReports_dark.png)
 
-![Resources]()
+![Resources_dark](https://github.com/Mangalam-17/MindSpace/blob/49b9f45ab6af85f96d13a7f67a3b7bf0fdf84862/Preview/Resources_dark.png)
 
 ---
 
