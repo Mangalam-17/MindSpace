@@ -11,6 +11,7 @@ const roadmapRoutes = require("./routes/roadmap");
 const reportsRoutes = require("./routes/reports");
 const resourcesRoutes = require("./routes/resources");
 const socketIo = require("socket.io");
+const User = require("./models/User"); // Import User model to get sender's name
 
 const app = express();
 const server = http.createServer(app);
@@ -65,12 +66,23 @@ io.on("connection", (socket) => {
     console.log(`Socket ${socket.id} joined circle ${circleId}`);
   });
 
-  socket.on("supportCircleMessage", ({ circleId, senderId, text }) => {
-    io.to(circleId).emit("newMessage", {
-      senderId,
-      text,
-      createdAt: new Date(),
-    });
+  socket.on("supportCircleMessage", async ({ circleId, senderId, text }) => {
+    try {
+      const user = await User.findById(senderId).select("name");
+      if (!user) {
+        console.error("User not found for senderId:", senderId);
+        return;
+      }
+
+      io.to(circleId).emit("newMessage", {
+        senderId,
+        senderName: user.name, // Include sender's name here
+        text,
+        createdAt: new Date(),
+      });
+    } catch (err) {
+      console.error("Error processing supportCircleMessage:", err);
+    }
   });
 
   socket.on("disconnect", () => {
