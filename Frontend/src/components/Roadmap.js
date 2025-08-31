@@ -30,7 +30,10 @@ export default function Roadmap({ token }) {
       .get("/api/roadmap", {
         headers: { "x-auth-token": token },
       })
-      .then((res) => setRoadmap(res.data.slice(0, 10))) // Limit to 10 cards
+      .then((res) => {
+        console.log("Roadmap fetched:", res.data); // Debug log for roadmap data
+        setRoadmap(res.data.slice(0, 10)); // Limit to 10 cards
+      })
       .catch(() => setRoadmap([]));
   };
 
