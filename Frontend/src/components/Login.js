@@ -64,7 +64,7 @@ export default function Login({ onLogin }) {
         typeof err.response.data.message === "string"
       ) {
         if (err.response.data.message === "Invalid credentials") {
-          setError("Wrong username or password, please try again.");
+          setError("Wrong username or password! please enter valid credentials.");
         } else {
           setError(err.response.data.message);
         }

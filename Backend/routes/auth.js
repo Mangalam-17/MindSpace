@@ -10,7 +10,7 @@ router.post("/register", async (req, res) => {
   try {
     if (await User.findOne({ username })) {
       return res.status(400).json({
-        message: "User already exists, please try a different username.",
+        message: "User already exists! please try with a different username.",
       });
     }
 
