@@ -76,58 +76,6 @@ The project is structured into the following folders and files:
 - Receive real-time updates and reminders
 - Support therapists and coaches in monitoring progress
 
-### ⚙️How to Run
-
-To run the website, follow these steps: 1. Clone the repository to your local machine using `git clone`. 2. Install the required dependencies using `npm install` in both frontend and backend folders. 3. Set up environment variables for backend configuration (`.env` file). 4. Run the backend server with `npm start` inside the `backend/` folder. 5. Run the frontend application with `npm start` inside the `src/` or `frontend/` folder. 6. Open the frontend app in your preferred web browser (usually at `http://localhost:3000`). 7. Optionally, customize CSS styles or add images/assets in the respective folders.
-
-### 📸Preview
-
-##### Home Page
-
-![Home Page]()
-
-##### Registration Page
-
-![Registration Page]()
-
-##### Dashboard
-
-![Dashboard]()
-
-##### Creative Therapy
-
-![Creative Therapy]()
-
-##### Support Circles
-
-![Support Circles]()
-
-##### Roadmap
-
-![Roadmap]()
-
-##### Insight Reports
-
-![Insight Reports]()
-
-##### Resources
-
-![Resources]()
-
-##### Dark Mode UI as well
-
-![Dashboard]()
-
-![Creative Therapy]()
-
-![Support Circles]()
-
-![Roadmap]()
-
-![Insight Reports]()
-
-![Resources]()
-
 ### Installation
 
 ### Prerequisites
@@ -194,7 +142,64 @@ To run the website, follow these steps: 1. Clone the repository to your local ma
    npm start or npm run dev
    ```
 
----
+### ⚙️How to Run
+
+- To run the website, follow these steps -
+
+1. Clone the repository to your local machine using `git clone`.
+2. Install the required dependencies using `npm install` in both frontend and backend folders.
+3. Set up environment variables for backend configuration (`.env` file).
+4. Run the backend server with `npm start` inside the `backend/` folder.
+5. Run the frontend application with `npm start` inside the `src/` or `frontend/` folder.
+6. Open the frontend app in your preferred web browser (usually at `http://localhost:3000`). 7. Optionally, customize CSS styles or add images/assets in the respective folders.
+
+### 📸Preview
+
+##### Home Page
+
+![Home Page]()
+
+##### Registration Page
+
+![Registration Page]()
+
+##### Dashboard
+
+![Dashboard]()
+
+##### Creative Therapy
+
+![Creative Therapy]()
+
+##### Support Circles
+
+![Support Circles]()
+
+##### Roadmap
+
+![Roadmap]()
+
+##### Insight Reports
+
+![Insight Reports]()
+
+##### Resources
+
+![Resources]()
+
+##### Dark Mode UI as well
+
+![Dashboard]()
+
+![Creative Therapy]()
+
+![Support Circles]()
+
+![Roadmap]()
+
+![Insight Reports]()
+
+![Resources]()
 
 ---
 
