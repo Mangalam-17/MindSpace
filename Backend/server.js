@@ -11,15 +11,15 @@ const roadmapRoutes = require("./routes/roadmap");
 const reportsRoutes = require("./routes/reports");
 const resourcesRoutes = require("./routes/resources");
 const socketIo = require("socket.io");
-const User = require("./models/User"); // Import User model to get sender's name
+const User = require("./models/User"); // Import User model for senderName
 
 const app = express();
 const server = http.createServer(app);
 
 // 1) Centralize allowed origins for dev + prod
 const allowedOrigins = [
-  "http://localhost:3000", // local frontend
-  "https://mind-space-sigma.vercel.app", // deployed frontend URL (no extra quotes)
+  "http://localhost:3000",
+  "https://mind-space-sigma.vercel.app",
 ];
 
 // 2) Socket.IO with CORS (include GET/POST)
@@ -45,7 +45,7 @@ app.use(
 
 app.use(express.json());
 
-// 4) Health check (useful for Render)
+// 4) Health check
 app.get("/health", (req, res) => res.json({ ok: true }));
 
 // API Routes
@@ -68,15 +68,12 @@ io.on("connection", (socket) => {
 
   socket.on("supportCircleMessage", async ({ circleId, senderId, text }) => {
     try {
-      const user = await User.findById(senderId).select("name");
-      if (!user) {
-        console.error("User not found for senderId:", senderId);
-        return;
-      }
+      const user = await User.findById(senderId);
+      const senderName = user ? user.name : "Unknown User";
 
       io.to(circleId).emit("newMessage", {
         senderId,
-        senderName: user.name, // Include sender's name here
+        senderName, // Send user name instead of just ID
         text,
         createdAt: new Date(),
       });

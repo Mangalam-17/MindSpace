@@ -322,7 +322,7 @@ export default function SupportCircle({ token, userId }) {
                 }}
               >
                 <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                  {msg.senderName || msg.senderId}
+                  {msg.senderId}
                 </Typography>
                 <Typography variant="body1">{msg.text}</Typography>
               </Box>
