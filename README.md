@@ -1,6 +1,6 @@
 ## 🚀MindSpace – AI Mental Health Support
 
-#### Live Link - mind-space-sigma.vercel.app
+#### Live Link - [mind-space-sigma.vercel.app](https://mind-space-sigma.vercel.app/)
 
 ### 📖Description
 
