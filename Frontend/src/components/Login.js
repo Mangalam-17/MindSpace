@@ -10,13 +10,15 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { api } from "../lib/api"; // centralized axios instance
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const buttonHover = keyframes`
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 `;
 
-export default function Login({ onLogin, showNotification }) {
+export default function Login({ onLogin }) {
   const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -35,14 +37,11 @@ export default function Login({ onLogin, showNotification }) {
         return;
       }
 
-      // Trigger global notification from App
-      if (showNotification) {
-        showNotification("Successfully logged in!", "success");
-      }
+      // Show success toast notification
+      toast.success("Successfully logged in!");
 
-      if (onLogin) {
-        onLogin(data.token, data.username);
-      } else {
+      if (onLogin) onLogin(data.token, data.username);
+      else {
         localStorage.setItem("token", data.token);
         localStorage.setItem("username", data.username);
       }
