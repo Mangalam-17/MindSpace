@@ -58,25 +58,15 @@ app.use("/api/resources", resourcesRoutes);
 
 // Socket.io real-time chat for Support Circles
 io.on("connection", (socket) => {
-  console.log("New client connected:", socket.id);
-
   socket.on("joinCircle", (circleId) => {
     socket.join(circleId);
-    console.log(`Socket ${socket.id} joined circle ${circleId}`);
   });
 
   socket.on("supportCircleMessage", async ({ circleId, senderId, text }) => {
     try {
       const user = await User.findById(senderId);
-      const senderName = user ? user.name : "Unknown User";
-
-      // Debug log to verify what is emitted
-      console.log("Sending message:", {
-        senderId,
-        senderName,
-        text,
-        createdAt: new Date(),
-      });
+      // Use username since 'name' field does not exist
+      const senderName = user ? user.username : "Unknown User";
 
       io.to(circleId).emit("newMessage", {
         senderId,
@@ -89,9 +79,7 @@ io.on("connection", (socket) => {
     }
   });
 
-  socket.on("disconnect", () => {
-    console.log("Client disconnected:", socket.id);
-  });
+  socket.on("disconnect", () => {});
 });
 
 // Listen on port
