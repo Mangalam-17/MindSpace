@@ -10,8 +10,15 @@ router.post("/register", async (req, res) => {
   try {
     if (await User.findOne({ username }))
       return res.status(400).json({ message: "User exists" });
+
     const hashed = await bcrypt.hash(password, 10);
-    const user = new User({ username, password: hashed });
+
+    const user = new User({
+      username,
+      password: hashed,
+      roadmapProgress: [], // Initialize empty roadmap progress
+    });
+
     await user.save();
 
     // Generate token immediately after registration
@@ -34,6 +41,7 @@ router.post("/login", async (req, res) => {
     if (!user) return res.status(400).json({ message: "Invalid credentials" });
     if (!(await bcrypt.compare(password, user.password)))
       return res.status(400).json({ message: "Invalid credentials" });
+
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });

@@ -1,31 +1,59 @@
 const express = require("express");
 const auth = require("../middleware/auth");
 const RoadmapStep = require("../models/RoadmapStep");
+const User = require("../models/User"); // Import the User model
 const router = express.Router();
 
-// Get all roadmap steps
+// Get all roadmap steps merged with user-specific completion status
 router.get("/", auth, async (req, res) => {
   try {
-    // If user-specific, filter by user: req.user.id
     const steps = await RoadmapStep.find();
-    res.json(steps);
+    const user = await User.findById(req.user.id);
+
+    const mergedSteps = steps.map((step) => {
+      const progress = user.roadmapProgress.find(
+        (p) => p.stepId.toString() === step._id.toString()
+      );
+      return {
+        ...step.toObject(),
+        completed: progress ? progress.completed : false,
+      };
+    });
+
+    res.json(mergedSteps);
   } catch (error) {
     res.status(500).json({ message: "Failed to get roadmap steps" });
   }
 });
 
-// Update completed status of a roadmap step by ID
+// Update completed status for a roadmap step for the authenticated user
 router.put("/:id", auth, async (req, res) => {
   try {
     const stepId = req.params.id;
     const { completed } = req.body;
-    const step = await RoadmapStep.findById(stepId);
-    if (!step) {
-      return res.status(404).json({ message: "Roadmap step not found" });
+
+    const user = await User.findById(req.user.id);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
     }
-    step.completed = completed;
-    await step.save();
-    res.json(step);
+
+    // Find existing progress record for this step, if any
+    let progress = user.roadmapProgress.find(
+      (p) => p.stepId.toString() === stepId
+    );
+
+    if (progress) {
+      // Update the existing progress
+      progress.completed = completed;
+    } else {
+      // Add new progress record
+      user.roadmapProgress.push({ stepId, completed });
+    }
+
+    await user.save();
+
+    res.json({ stepId, completed });
   } catch (error) {
     res.status(500).json({ message: "Failed to update roadmap step" });
   }
