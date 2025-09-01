@@ -12,6 +12,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { api } from "../lib/api"; // centralized axios instance
 
 const numberToMood = {
+  6: "Anxious",
   5: "Happy",
   4: "Calm",
   3: "Neutral",
@@ -19,6 +20,7 @@ const numberToMood = {
   1: "Sad",
 };
 const moodEmojis = {
+  Anxious: "😰",
   Happy: "😊",
   Sad: "😞",
   Neutral: "😐",
@@ -247,11 +249,11 @@ export default function InsightReports({ token, moodUpdatedAt, darkMode }) {
       </Paper>
     );
 
-  // Aggregations (unchanged)
+  // Aggregations with correct mood name mapping
   const counts = moods.reduce((acc, m) => {
     const moodKey =
       typeof m.mood === "number"
-        ? numberToMood[m.mood]
+        ? numberToMood[m.mood] || "Unknown"
         : numberToMood[Number(m.mood)] ||
           m.mood.charAt(0).toUpperCase() + m.mood.slice(1);
     acc[moodKey] = (acc[moodKey] || 0) + 1;
@@ -270,7 +272,7 @@ export default function InsightReports({ token, moodUpdatedAt, darkMode }) {
   moods.forEach(({ mood: m }) => {
     const moodName =
       typeof m === "number"
-        ? numberToMood[m]
+        ? numberToMood[m] || "Unknown"
         : numberToMood[Number(m)] || m.charAt(0).toUpperCase() + m.slice(1);
     if (moodName === currentMood) currentCount++;
     else {
