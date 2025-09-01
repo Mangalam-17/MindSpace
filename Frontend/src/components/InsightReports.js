@@ -161,6 +161,33 @@ const moodBasedSuggestions = {
         "Try creative activities that you enjoy like drawing or crafting 🎨✂️.",
     },
   ],
+  Anxious: [
+    {
+      title: "💨 Try Breathing Exercises",
+      details:
+        "Take a few slow, deep breaths to help calm your mind and body. Inhale for 4 seconds, hold for 4, exhale for 6. 🌬️",
+    },
+    {
+      title: "📝 Write Down Your Worries",
+      details:
+        "Journaling can help you process and reduce anxious thoughts. Let it flow on paper! 📖",
+    },
+    {
+      title: "⏰ Take a Break",
+      details:
+        "Step away from screens and allow yourself a few moments to reset. A change of scenery can help! 🚶‍♂️🌳",
+    },
+    {
+      title: "🎧 Listen to Soothing Sounds",
+      details:
+        "Play calming music or nature sounds to relax your mind and lessen anxiety. 🎶🌊",
+    },
+    {
+      title: "🤗 Talk to Someone You Trust",
+      details:
+        "Reaching out to a friend or family member can provide comfort and new perspective. 💬",
+    },
+  ],
 };
 
 export default function InsightReports({ token, moodUpdatedAt, darkMode }) {
