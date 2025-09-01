@@ -34,7 +34,7 @@ const moodMap = {
   sad: 1,
   angry: 2,
   calm: 4,
-  anxious: 2,
+  anxious: 6,
 };
 
 export default function MoodTracker({
