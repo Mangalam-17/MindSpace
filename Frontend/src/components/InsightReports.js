@@ -26,7 +26,25 @@ const moodEmojis = {
   Calm: "😌",
 };
 const defaultSuggestions = [
-  // ...your suggestions from before
+  {
+    title: "Mindful Breathing",
+    details:
+      "Take a few deep breaths to help reduce stress and increase focus.",
+  },
+  {
+    title: "Physical Activity",
+    details: "Engage in a short walk or light exercise to boost your mood.",
+  },
+  {
+    title: "Creative Expression",
+    details:
+      "Try journaling, drawing, or any creative activity to process your feelings.",
+  },
+  {
+    title: "Connect with Others",
+    details:
+      "Reach out to a friend or support group to share and feel supported.",
+  },
 ];
 
 export default function InsightReports({ token, moodUpdatedAt, darkMode }) {
@@ -74,48 +92,11 @@ export default function InsightReports({ token, moodUpdatedAt, darkMode }) {
           boxShadow: darkMode ? "0 4px 20px #14161c55" : "0 4px 20px #fad0be",
         }}
       >
-        <Typography
-          variant="h1"
-          sx={{
-            mb: { xs: 1, md: 2 },
-            color: iconColor,
-            fontSize: { xs: "2.2rem", md: "3rem" },
-          }}
-        >
-          🧠
-        </Typography>
-        <Typography
-          variant="h6"
-          sx={{
-            mb: 1,
-            color: "#e3696c",
-            fontSize: { xs: "1.05rem", md: "1.15rem" },
-          }}
-        >
-          No mood records yet!
-        </Typography>
-        <Typography
-          sx={{
-            mb: { xs: 1.5, md: 2 },
-            color: darkMode ? "#cccccc" : "#844",
-            fontSize: { xs: "0.98rem", md: "1.07em" },
-            px: { xs: 1, md: 0 },
-          }}
-        >
-          Start logging how you feel in the Mood Tracker to unlock personalized
-          insights here.
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ color: darkMode ? "#7cd1e7" : "#df7422" }}
-        >
-          Your personal mood trends and achievement badges will appear after you
-          begin tracking.
-        </Typography>
+        {/* ... your empty state UI ... */}
       </Paper>
     );
 
-  // Aggregations (unchanged)
+  // Aggregation logic unchanged...
   const counts = moods.reduce((acc, m) => {
     const moodKey =
       typeof m.mood === "number"
@@ -235,7 +216,7 @@ export default function InsightReports({ token, moodUpdatedAt, darkMode }) {
           <Typography
             sx={{
               color: darkMode ? "#eeeeee" : "#ad4a00",
-              fontSize: { xs: "0.98rem", md: "1rem" },
+              fontSize: { xs: 0.98, md: 1 },
             }}
           >
             No significant mood streak yet. Keep logging to discover your

@@ -20,15 +20,15 @@ mongoose
   });
 
 const steps = [
-  { step: "Daily mindfulness meditation for 10 minutes", completed: false },
+  { step: "Daily mindfulness meditation", completed: false },
   { step: "Reflect weekly in journal", completed: false },
   { step: "Join Support Circle group", completed: false },
   { step: "Attend local wellness event", completed: false },
-  { step: "Practice deep breathing once a day", completed: false },
+  { step: "Practice deep breathing", completed: false },
   { step: "Read a mental health article", completed: false },
   { step: "Talk to a supportive friend", completed: false },
   { step: "Try a creative therapy activity", completed: false },
-  { step: "Set one self-care goal for the week", completed: false },
+  { step: "Set one self-care goal", completed: false },
   { step: "Track your mood for a week", completed: false },
 ];
 
