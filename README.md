@@ -1,10 +1,10 @@
-## 🚀MindSpace – AI Mental Health Support
+## 🚀MindSpace – Mental Health Support
 
 #### Live Link - [mind-space-sigma.vercel.app](https://mind-space-sigma.vercel.app/)
 
 ### 📖Description
 
-MindSpace is an AI-powered mental health support platform designed to improve wellbeing through mood tracking, creative expression, peer support circles, and actionable resources. The platform combines technology and community to break traditional barriers around accessing mental health care.A full-stack AI mental health app with React frontend and Node.js backend. Features mood tracking, creative therapy, real-time support circles, and personalized roadmaps. Uses environment variables for secure config and supports deployment on Vercel &amp; Render. Focused on user wellness and community.
+MindSpace is an application mental health support platform designed to improve wellbeing through mood tracking, creative expression, peer support circles, and actionable resources. The platform combines technology and community to break traditional barriers around accessing mental health care.A full-stack AI mental health app with React frontend and Node.js backend. Features mood tracking, creative therapy, real-time support circles, and personalized roadmaps. Uses environment variables for secure config and supports deployment on Vercel &amp; Render. Focused on user wellness and community.
 
 ---
 
@@ -208,13 +208,13 @@ The project is structured into the following folders and files:
 
 ## Future Scope
 
-1. AI-driven mood prediction and therapy suggestions
+1. User-driven mood prediction and therapy suggestions
 2. Integration with wearable health-tracking devices
 3. Multilingual and culturally adapted interfaces
 4. Mobile app versions
 5. VR/AR therapy modules
 6. Enhanced teletherapy features
-7. Safe, AI-moderated expanded communities
+7. Safe and expanded communities
 8. Advanced analytics dashboards
 9. Integration with clinical systems
 10. Gamification for better engagement
