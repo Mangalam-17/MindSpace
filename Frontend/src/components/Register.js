@@ -123,7 +123,7 @@ export default function Register({ onRegister }) {
             px: { xs: 1, md: 0 },
           }}
         >
-          MindSpace - AI Mental Health Support
+          MindSpace - Mental Health Support
         </Typography>
 
         <Paper
