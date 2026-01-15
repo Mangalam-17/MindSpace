@@ -214,7 +214,7 @@ export default function Dashboard({
               lineHeight: 1.2,
             }}
           >
-            MindSpace - AI Mental Health Support
+            MindSpace - Personalized Mental Health Support
           </Typography>
           <Box
             sx={{
